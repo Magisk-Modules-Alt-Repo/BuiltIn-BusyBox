@@ -2,7 +2,7 @@
 ### Copyright (c) zgfg @ xda, 2022-
 
 ### Description
-Systemless BusyBox installing by the Magisk built-in /data/adb/magisk/busybox binary
+Systemless BusyBox installing by the Magisk built-in busybox binary
 
 ### Links [Source]
 https://github.com/zgfg/BuiltIn-BusyBox 
