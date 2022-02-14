@@ -5,7 +5,7 @@
 Systemless BusyBox installing by the Magisk built-in busybox binary
 
 ### Links [Source]
-https://github.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox 
+https://github.com/zgfg/BuiltIn-BusyBox 
 
 My repo: 
 
