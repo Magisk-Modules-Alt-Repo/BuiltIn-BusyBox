@@ -1,6 +1,6 @@
 #### v1.0.1
 
-Released on Alt Repository
+Released at Alt Repository
 
 #### v1.0.0
 
