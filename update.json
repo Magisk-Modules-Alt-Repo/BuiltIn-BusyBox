@@ -1,6 +1,6 @@
 { 
-  "versionCode": 101,
-  "version": "v1.0.1",
-  "zipUrl": "https://github.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox/releases/download/101/BuiltIn-BusyBox_v1.0.1.zip",
+  "versionCode": 102,
+  "version": "v1.0.2",
+  "zipUrl": "https://github.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox/releases/download/102/BuiltIn-BusyBox_v1.0.2.zip",
   "changelog": "https://raw.githubusercontent.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox/main/changelog.md"
 }

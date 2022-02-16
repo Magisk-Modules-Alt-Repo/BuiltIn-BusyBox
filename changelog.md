@@ -1,3 +1,7 @@
+#### v1.0.2
+
+Install to /system/bin if /system/xbin does not exist
+
 #### v1.0.1
 
 Released at Alt Repository
