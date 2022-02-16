@@ -1,7 +1,9 @@
 # BuiltIn-BusyBox
 
 ### Description
-Systemless BusyBox installing by the Magisk built-in busybox binary
+Systemless BusyBox installing by the Magisk built-in busybox binary.
+For more info, see:
+https://github.com/topjohnwu/ndk-busybox
 
 #### Source 
 
