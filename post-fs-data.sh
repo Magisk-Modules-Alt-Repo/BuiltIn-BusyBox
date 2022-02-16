@@ -1,5 +1,13 @@
 MODDIR=${0%/*}
-BBDIR=$MODDIR/system/xbin
+
+XBINDIR=/system/xbin
+if [ -d $XBINDIR ]
+then
+BBDIR=$MODDIR$XBINDIR
+else
+BBDIR=$BBDIR/system/bin
+fi
+
 BBBIN=$BBDIR/busybox
 
 mkdir -p $BBDIR
