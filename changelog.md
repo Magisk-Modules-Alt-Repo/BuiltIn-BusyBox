@@ -1,3 +1,7 @@
+#### v1.0.3
+
+Create symlinks only for applets not found in the path
+
 #### v1.0.2
 
 Install to /system/bin if /system/xbin does not exist
