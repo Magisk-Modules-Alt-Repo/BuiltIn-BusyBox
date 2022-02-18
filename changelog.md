@@ -1,4 +1,4 @@
-#### v#### v1.0.3
+#### v1.0.3
 
 Create symlinks only for applets not found in the path
 
