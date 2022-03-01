@@ -5,6 +5,43 @@ Systemless BusyBox installing by the Magisk built-in busybox binary.
 For more info, see:
 https://github.com/topjohnwu/ndk-busybox
 
+### TEST
+
+Install the module and reboot. Use **Terminal Emulator** - **BusyBox applets** are for Terminal and shell scripts.
+Make sure that `/system/bin` and `/system/xbin` (the latter might not available for some phones) are in the `PATH`.
+Check e.g. with (all commands are case sensitive):
+
+```
+su
+echo $PATH
+```
+
+Check if `busybox` is installed and is it installed to `/system/xbin` or `/system/bin`:
+
+```
+busybox --help
+which busybox
+```
+
+If the responded `busybox` path was `/system/xbin` then check:
+
+```
+ls -l /system/xbin | grep busybox
+```
+
+whereas if the `busybox` path was `/system/bin` then use:
+
+```
+ls -l /system/bin | grep busybox
+```
+
+The command will show you all the `busybox applets` as installed (symlinked to the `busybox binary`).
+Usually, `whois` will be one of them, hence you can try:
+
+```
+whois --help
+```
+
 #### Source 
 
 [My Repo:](https://github.com/zgfg/BuiltIn-BusyBox)
