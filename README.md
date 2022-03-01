@@ -14,7 +14,7 @@ Check e.g. with (all commands are **case sensitive**):
 su
 echo $PATH
 ```
-Check if `busybox` is installed and is it installed to `/system/xbin` or `/system/bin`:
+Check if `busybox` was properly installed and is it installed to `/system/xbin` or `/system/bin`:
 ```
 busybox --help
 which busybox
