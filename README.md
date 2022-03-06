@@ -1,15 +1,18 @@
 # BuiltIn-BusyBox
 
 ### Description
-Systemless BusyBox installing by the Magisk built-in busybox binary.
+Systemless module to install the Magisk built-in **BusyBox** binary and its applets.
 For more info, see:
 https://github.com/topjohnwu/ndk-busybox
+
+**Tip**: To install even more interesting applets, install also the **ToyBox-Ext** module:
+https://github.com/Magisk-Modules-Alt-Repo/ToyBox-Ext
 
 ##### TEST
 
 **Install** the module and **reboot**. Use **Terminal Emulator** - **BusyBox applets** are for Terminal and **shell scripts**.
 
-Make sure that `/system/bin` and `/system/xbin` (the latter might not available for some phones) are in the `PATH`.
+Make sure that `/system/bin` and `/system/xbin` (the latter might not available on some devices) are in the `PATH`.
 Check e.g. with (all commands are **case sensitive**):
 ```
 su
