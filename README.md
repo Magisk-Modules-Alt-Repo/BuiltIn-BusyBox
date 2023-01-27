@@ -1,8 +1,8 @@
 # BuiltIn-BusyBox
 
 ### Description
-Systemless Magisk module to install **BusyBox** binary and applets (**UNIX/Linux command-line utilities**).
-BusyBox with its applets are installed by and symlinked to the Magisk built-in busybox binary 
+Systemless Magisk module to install **BusyBox** binary with its applets (**UNIX/Linux command-line utilities**).
+BusyBox and applets are installed by and symlinked to the Magisk built-in busybox binary 
 For more info, see:
 https://github.com/topjohnwu/ndk-busybox
 
