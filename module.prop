@@ -3,5 +3,5 @@ name=BuiltIn BusyBox
 version=1.0.4
 versionCode=104
 author=zgfg @ xda
-description=Systemless BusyBox installed by the Magisk built-in busybox binary
-updateJson=https://raw.githubusercontent.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox/main/update.json
+description=Systemless BusyBox installed by and symlinked to the Magisk built-in busybox binary
+updateJson=https://raw.githubusercontent.com/zgfg/BuiltIn-BusyBox/main/update.json

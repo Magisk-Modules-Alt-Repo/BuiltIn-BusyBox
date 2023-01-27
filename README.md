@@ -1,7 +1,8 @@
 # BuiltIn-BusyBox
 
 ### Description
-Systemless module to install the Magisk built-in **BusyBox** binary and applets (**UNIX/Linux command-line utilities**).
+Systemless Magisk module to install **BusyBox** binary and applets (**UNIX/Linux command-line utilities**).
+BusyBox with its applets are installed by and symlinked to the Magisk built-in busybox binary 
 For more info, see:
 https://github.com/topjohnwu/ndk-busybox
 
@@ -31,10 +32,11 @@ whereas if the busybox path was `/system/bin` then use:
 ```
 ls -l /system/bin | grep busybox
 ```
-The command will show you all the busybox applets as installed (symlinked to the busybox binary).
+The command will show all the busybox applets as installed (symlinked to the busybox binary).
 Usually, `whois` will be one of them, hence you can try:
 ```
 whois --help
+busybox whois --help
 ```
 
 #### Source 
