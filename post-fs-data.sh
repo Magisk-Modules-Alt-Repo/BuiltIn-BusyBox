@@ -1,7 +1,13 @@
+#!/system/bin/sh
+
+#Magisk Module BuiltIn-BusyBox v1.0.4
+#Copyright (c) zgfg @ xda, 2022-
+
 # Module's own path (local path)
 MODDIR=${0%/*}
 
 # System XBIN path
+BINDIR=/system/bin
 XBINDIR=/system/xbin
 
 # Local XBIN and (or) BIN paths for mounting
@@ -24,26 +30,19 @@ rm -rf $BBBINDIR
 BBBIN=busybox
 MAGISKBBBIN=/data/adb/magisk/$BBBIN
 
-# Install and list busybox applets using TMP dir
-TMPDIR=$MODDIR/tmp
-rm -rf $TMPDIR
-mkdir -p $TMPDIR
-$MAGISKBBBIN --install -s $TMPDIR
-Applets=$(ls $TMPDIR)
-rm -rf $TMPDIR
+Applets=$($MAGISKBBBIN --list)
+Applets="$Applets"$'\n'"$BBBIN"
 
-# Copy the Magisk built-in busybox locally
+# Create local symlinks for busybox applets
 mkdir -p $BBDIR
 cd $BBDIR
-cp $MAGISKBBBIN $BBBIN
-
-# Create symlinks for applets
 for Applet in $Applets
 do
   # Skip if applet already found in the path
   Check=$(which $Applet)
   if [ -z "$Check" ]
   then
-    ln -s $BBBIN $Applet
+	# Create symlink
+    ln -s $MAGISKBBBIN $Applet
   fi
 done

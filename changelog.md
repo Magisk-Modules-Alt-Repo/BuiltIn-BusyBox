@@ -2,6 +2,10 @@
 
 For even more interesting applets, install also ToyBox-Ext module
 
+#### v1.0.4
+
+Symlink directly to the magisk built-in busybox
+
 #### v1.0.3
 
 Create symlinks only for applets not found in the path
