@@ -1,4 +1,4 @@
-# BuiltIn-BusyBox
+# Magisk built-in BusyBox
 
 ### Description
 Systemless Magisk module to install **BusyBox** binary with its applets (**UNIX/Linux command-line utilities**).

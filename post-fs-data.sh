@@ -1,7 +1,8 @@
 #!/system/bin/sh
 
-#Magisk Module BuiltIn-BusyBox v1.0.4
-#Copyright (c) zgfg @ xda, 2022-
+# Magisk Module: Magisk built-in BusyBox v1.0.4
+# Copyright (c) zgfg @ xda, 2022-
+# GitHub source: https://github.com/zgfg/BuiltIn-BusyBox
 
 # Module's own path (local path)
 MODDIR=${0%/*}
@@ -30,6 +31,7 @@ rm -rf $BBBINDIR
 BBBIN=busybox
 MAGISKBBBIN=/data/adb/magisk/$BBBIN
 
+# List provided applets
 Applets=$($MAGISKBBBIN --list)
 Applets="$Applets"$'\n'"$BBBIN"
 
