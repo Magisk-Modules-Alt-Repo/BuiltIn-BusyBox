@@ -39,6 +39,9 @@ whois --help
 busybox whois --help
 ```
 
+### Coffee
+If this module is useful for you, please support development by donating a [coffe](https://www.paypal.me/ipenzar)
+
 #### Source 
 
 [My Repo:](https://github.com/zgfg/BuiltIn-BusyBox)
