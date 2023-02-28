@@ -40,7 +40,7 @@ busybox whois --help
 ```
 
 ### Coffee
-If this module is useful for you, please support development by donating a [coffe](https://www.paypal.me/ipenzar)
+If this module is useful for you, please support development by donating a [coffee](https://www.paypal.me/ipenzar)
 
 #### Source 
 
