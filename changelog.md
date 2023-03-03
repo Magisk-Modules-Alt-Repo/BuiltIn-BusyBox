@@ -1,5 +1,5 @@
 #### Coffee
-If the module is useful, you may support development by donating a [coffee](https://www.paypal.me/ipenzar)
+If the module is useful, you may support development by donating a [coffee](https://zgfg.github.io/PayPal.html)
 
 #### Tip:
 For even more interesting applets, install also ToyBox-Ext module
