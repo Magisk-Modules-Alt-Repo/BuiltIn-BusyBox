@@ -8,41 +8,42 @@
 MODDIR=${0%/*}
 
 # System XBIN path
-BINDIR=/system/bin
 XBINDIR=/system/xbin
+BINDIR=/system/bin
 
 # Local XBIN and (or) BIN paths for mounting
 BBXBINDIR=$MODDIR$XBINDIR
-BBBINDIR=$MODDIR/system/bin
+BBBINDIR=$MODDIR$BINDIR
 
 # Use local XBIN path if System XBIN path exists, otherwise use local BIN path
 if [ -d $XBINDIR ]
 then
+  SDIR=$XBINDIR
   BBDIR=$BBXBINDIR
 else
-  BBDIR=$BBBINDIR
+  SDIR=$BINDIR
+  BBDIR=$BBBINDIR			 
 fi
 
 # Clean-up local XBIN and BIN paths
 rm -rf $BBXBINDIR
 rm -rf $BBBINDIR
+mkdir -p $BBDIR
+cd $BBDIR
 
-# busybox binary
+# Magisk built-in BusyBox
 BBBIN=busybox
 MAGISKBBBIN=/data/adb/magisk/$BBBIN
 
-# List provided applets
-Applets=$($MAGISKBBBIN --list)
-Applets="$Applets"$'\n'"$BBBIN"
+# List busybox applets
+Applets="$BBBIN"$'\n'$($MAGISKBBBIN --list)
 
-# Create local symlinks for busybox applets
-mkdir -p $BBDIR
-cd $BBDIR
+# Create symlinks for busybox applets
 for Applet in $Applets
 do
   # Skip if applet already found in the path
   Check=$(which $Applet)
-  if [ -z "$Check" ]
+  if [ -z "$Check" ] && [ ! -x "$SDIR/$Applet" ]
   then
 	# Create symlink
     ln -s $MAGISKBBBIN $Applet
