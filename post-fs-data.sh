@@ -35,8 +35,10 @@ cd $BBDIR
 BBBIN=busybox
 MAGISKBBBIN=/data/adb/magisk/$BBBIN
 
+cp -af $MAGISKBBBIN $BBBIN
+
 # List busybox applets
-Applets="$BBBIN"$'\n'$($MAGISKBBBIN --list)
+Applets="$(./$BBBIN --list)"
 
 # Create symlinks for busybox applets
 for Applet in $Applets
@@ -46,6 +48,6 @@ do
   if [ -z "$Check" ] && [ ! -x "$SDIR/$Applet" ]
   then
 	# Create symlink
-    ln -s $MAGISKBBBIN $Applet
+    ln -s ./$BBBIN $Applet
   fi
 done
