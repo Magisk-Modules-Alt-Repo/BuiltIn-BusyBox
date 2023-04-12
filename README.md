@@ -55,6 +55,8 @@ busybox whois --help
 
 #### Copyright (c) zgfg @ xda, 2022-
 <p align="left">
-</a> <a href="https://github.com/zgfg/BuiltIn-BusyBox/blob/0f6c6c079f7837470d89ac443a73d716e10ef0f2/LICENSE"> <img src="https://img.shields.io/github/license/zgfg/BuiltIn-BusyBox?label=License&logo=gnu" alt="GNU General Public License"></a>
-<a href="https://zgfg.github.io/PayPal.html"> <img src="https://img.shields.io/badge/-Donate%20a%20coffee-FFDD00?logo=Buy-me-a-coffee&logoColor=black" alt="Donate a coffee"> </a> 
+<a href="https://github.com/zgfg/BuiltIn-BusyBox/blob/0f6c6c079f7837470d89ac443a73d716e10ef0f2/LICENSE"> <img src="https://img.shields.io/github/license/zgfg/BuiltIn-BusyBox?label=License&logo=gnu&logoColor=orange" alt="GNU General Public License">
+</a>
+<a href="https://zgfg.github.io/PayPal.html"> <img src="https://img.shields.io/badge/-Donate%20a%20coffee-FFDD00?logo=CoffeeScript&logoColor=black" alt="Donate a coffee">
+</a> 
 </p>
