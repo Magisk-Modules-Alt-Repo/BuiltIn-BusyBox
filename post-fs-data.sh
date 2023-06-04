@@ -6,6 +6,12 @@
 
 # Module's own path (local path)
 MODDIR=${0%/*}
+cd $MODDIR
+
+# Log for debugging
+LogFile="$MODDIR/post-fs-data.log"
+exec 2>$LogFile
+set -x
 
 # System XBIN path
 XBINDIR=/system/xbin
@@ -31,21 +37,30 @@ rm -rf $BBBINDIR
 mkdir -p $BBDIR
 cd $BBDIR
 
-# Magisk built-in BusyBox
-BBBIN=busybox
-MAGISKBBBIN=/data/adb/magisk/$BBBIN
+# ToyBox path
+TBDIR="/data/adb/modules/ToyBox-Ext/$SDIR"
 
-# List busybox applets
-Applets="$BBBIN"$'\n'$($MAGISKBBBIN --list)
+# Magisk built-in BusyBox
+BB=busybox
+BBBIN=/data/adb/magisk/$BB
+
+# List BusyBox applets
+Applets="$BB"$'\n'"$($BBBIN --list)"
 
 # Create symlinks for busybox applets
 for Applet in $Applets
 do
-  # Skip if applet already found in the path
-  Check=$(which $Applet)
-  if [ -z "$Check" ] && [ ! -x "$SDIR/$Applet" ]
+  Target=$SDIR/$Applet
+  if [ ! -x $Target ] ||  [ -h $Target ]
   then
-	# Create symlink
-    ln -s $MAGISKBBBIN $Applet
+    # Create symlink
+    ln -s $BBBIN $Applet
+
+    # Remove symlink for ToyBox applet (prefer BusyBox)
+    Target=$TBDIR/$Applet
+    if [ -h $Target ]
+    then
+      rm -f $Target
+    fi
   fi
 done

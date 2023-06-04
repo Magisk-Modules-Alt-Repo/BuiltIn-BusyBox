@@ -4,4 +4,4 @@ version=1.0.5
 versionCode=105
 author=zgfg @ xda
 description=Systemless BusyBox installed by and symlinked to the Magisk built-in busybox binary
-updateJson=https://raw.githubusercontent.com/zgfg/BuiltIn-BusyBox/main/update.json
+updateJson=https://raw.githubusercontent.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox/main/update.json
