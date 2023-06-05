@@ -1,6 +1,6 @@
 #!/system/bin/sh
 
-# Magisk Module: Magisk built-in BusyBox v1.0.4
+# Magisk Module: Magisk built-in BusyBox v1.0.5
 # Copyright (c) zgfg @ xda, 2022-
 # GitHub source: https://github.com/zgfg/BuiltIn-BusyBox
 
@@ -14,8 +14,8 @@ exec 2>$LogFile
 set -x
 
 # System XBIN path
-XBINDIR=/system/xbin
 BINDIR=/system/bin
+XBINDIR=/system/xbin
 
 # Local XBIN and (or) BIN paths for mounting
 BBXBINDIR=$MODDIR$XBINDIR
@@ -28,7 +28,7 @@ then
   BBDIR=$BBXBINDIR
 else
   SDIR=$BINDIR
-  BBDIR=$BBBINDIR			 
+  BBDIR=$BBBINDIR
 fi
 
 # Clean-up local XBIN and BIN paths
@@ -39,7 +39,7 @@ cd $BBDIR
 
 # ToyBox path
 TBDIR="/data/adb/modules/ToyBox-Ext/$SDIR"
-
+								   
 # Magisk built-in BusyBox
 BB=busybox
 BBBIN=/data/adb/magisk/$BB
@@ -47,16 +47,16 @@ BBBIN=/data/adb/magisk/$BB
 # List BusyBox applets
 Applets="$BB"$'\n'"$($BBBIN --list)"
 
-# Create symlinks for busybox applets
+# Create local symlinks for BusyBox applets
 for Applet in $Applets
 do
   Target=$SDIR/$Applet
-  if [ ! -x $Target ] ||  [ -h $Target ]
+  if [ ! -x $Target ] || [ -h $Target ]
   then
     # Create symlink
     ln -s $BBBIN $Applet
 
-    # Remove symlink for ToyBox applet (prefer BusyBox)
+    # Remove local symlink for ToyBox applet (prefer BusyBox)
     Target=$TBDIR/$Applet
     if [ -h $Target ]
     then
