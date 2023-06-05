@@ -2,7 +2,7 @@
 If the module is useful, you may support development by donating a [coffee](https://zgfg.github.io/PayPal.html)
 
 #### Tip:
-For even more interesting applets, install also  [ToyBox-Ext](https://github.com/Magisk-Modules-Alt-Repo/ToyBox-Ext) module
+For even more interesting applets, install also [ToyBox-Ext](https://github.com/Magisk-Modules-Alt-Repo/ToyBox-Ext) module
 
 #### v1.0.5
 
