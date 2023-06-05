@@ -4,6 +4,10 @@ If the module is useful, you may support development by donating a [coffee](http
 #### Tip:
 For even more interesting applets, install also ToyBox-Ext module
 
+#### v1.0.5
+
+Prefer BusyBox over ToyBox applets for the common applets (when both modules are installed)
+
 #### v1.0.4
 
 Symlink directly to the Magisk built-in busybox
