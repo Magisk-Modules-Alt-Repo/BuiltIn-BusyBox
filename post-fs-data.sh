@@ -42,7 +42,14 @@ TBDIR="/data/adb/modules/ToyBox-Ext/$SDIR"
 								   
 # Magisk built-in BusyBox
 BB=busybox
-BBBIN=/data/adb/magisk/$BB
+MAGISKBBBIN=/data/adb/magisk/$BB
+KSUBBBIN=/data/adb/ksu/bin/$BB
+if [ ! $KSU ]
+then
+  BBBIN=$MAGISKBBBIN
+else
+  BBBIN=$KSUBBBIN
+fi
 
 # List BusyBox applets
 Applets="$BB"$'\n'"$($BBBIN --list)"
