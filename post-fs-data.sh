@@ -1,39 +1,31 @@
 #!/system/bin/sh
 
-# Magisk Module: Magisk built-in BusyBox v1.0.5
+# Magisk Module: Magisk built-in BusyBox v1.0.6
 # Copyright (c) zgfg @ xda, 2022-
 # GitHub source: https://github.com/zgfg/BuiltIn-BusyBox
 
 # Module's own path (local path)
 MODDIR=${0%/*}
-cd $MODDIR
 
-# Log for debugging
+# Log file for debugging
 LogFile="$MODDIR/post-fs-data.log"
-exec 2>$LogFile
+exec 2>$LogFile 1>&2
 set -x
 
-# System XBIN path
-BINDIR=/system/bin
-XBINDIR=/system/xbin
+# Log Magisk version and magisk --path
+magisk -c
+magisk --path
 
-# Local XBIN and (or) BIN paths for mounting
-BBXBINDIR=$MODDIR$XBINDIR
-BBBINDIR=$MODDIR$BINDIR
+# Clean-up old stuff
+rm -rf "$MODDIR/system"
 
-# Use local XBIN path if System XBIN path exists, otherwise use local BIN path
-if [ -d $XBINDIR ]
+# XBIN and (or) BIN paths for mounting
+SDIR=/system/xbin
+if [ ! -d $SDIR ]
 then
-  SDIR=$XBINDIR
-  BBDIR=$BBXBINDIR
-else
-  SDIR=$BINDIR
-  BBDIR=$BBBINDIR
+  SDIR=/system/bin
 fi
-
-# Clean-up local XBIN and BIN paths
-rm -rf $BBXBINDIR
-rm -rf $BBBINDIR
+BBDIR=$MODDIR$SDIR
 mkdir -p $BBDIR
 cd $BBDIR
 
@@ -45,13 +37,14 @@ BB=busybox
 BBBIN=/data/adb/magisk/$BB
 
 # List BusyBox applets
+$BBBIN --list | wc -l
 Applets="$BB"$'\n'"$($BBBIN --list)"
 
 # Create local symlinks for BusyBox applets
 for Applet in $Applets
 do
   Target=$SDIR/$Applet
-  if [ ! -x $Target ] || [ -h $Target ]
+  if [ ! -x $Target ]
   then
     # Create symlink
     ln -s $BBBIN $Applet
@@ -62,5 +55,14 @@ do
     then
       rm -f $Target
     fi
+  else
+    echo "Skip $Applet"
+    Target=$(which $Applet)
   fi
 done
+
+# Log results
+Applets=$(ls -1)
+pwd
+ls -l $BB
+ls | wc -l
