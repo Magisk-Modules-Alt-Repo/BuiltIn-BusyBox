@@ -19,7 +19,7 @@ magisk --path
 # Clean-up old stuff
 rm -rf "$MODDIR/system"
 
-# XBIN and (or) BIN paths for mounting
+# Choose XBIN or BIN path
 SDIR=/system/xbin
 if [ ! -d $SDIR ]
 then
@@ -28,8 +28,9 @@ fi
 BBDIR=$MODDIR$SDIR
 mkdir -p $BBDIR
 cd $BBDIR
+pwd
 
-# ToyBox path
+# ToyBox-Ext path
 TBDIR="/data/adb/modules/ToyBox-Ext/$SDIR"
 								   
 # Magisk built-in BusyBox
@@ -55,14 +56,9 @@ do
     then
       rm -f $Target
     fi
-  else
-    echo "Skip $Applet"
-    Target=$(which $Applet)
   fi
 done
 
 # Log results
-Applets=$(ls -1)
-pwd
 ls -l $BB
 ls | wc -l
