@@ -1,6 +1,6 @@
 #!/system/bin/sh
 
-# Magisk Module: Magisk built-in BusyBox v1.0.6
+# Magisk Module: Magisk built-in BusyBox v1.0.6a
 # Copyright (c) zgfg @ xda, 2022-
 # GitHub source: https://github.com/zgfg/BuiltIn-BusyBox
 
@@ -61,4 +61,7 @@ done
 
 # Log results
 ls -l $BB
-ls | wc -l
+$BBBIN | head -n 1
+ls -l | grep $BB | grep ^lr.x | rev | cut -d ' ' -f 3 | rev
+ls -l | grep $BB | grep ^lr.x | wc -l
+

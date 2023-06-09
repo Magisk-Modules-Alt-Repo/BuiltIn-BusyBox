@@ -1,6 +1,6 @@
 id=BuiltIn-BusyBox
 name=Magisk built-in BusyBox
-version=1.0.6
+version=1.0.6a
 versionCode=106
 author=zgfg @ xda
 description=Systemless BusyBox installed by and symlinked to the Magisk built-in busybox binary
