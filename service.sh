@@ -19,9 +19,10 @@ magisk --path
 
 # Log results for BusyBox
 BB=busybox
-which $BB
 $BB | head -n 1
-BBDIR=$(which $BB | sed "s,/$BB$,,")
+BBBIN=$(which $BB)
+ls -lZ $BBBIN
+BBDIR=$(echo "$BBBIN" | sed "s,/$BB$,,")
 if [ -d $BBDIR ]
 then
   cd $BBDIR
@@ -32,9 +33,10 @@ fi
 
 # Log results for ToyBox
 TB=toybox
-which $TB
 $TB --version
-TBDIR=$(which $TB | sed "s,/$TB$,,")
+TBBIN=$(which $TB)
+ls -lZ $TBBIN
+TBDIR=$(echo "$TBBIN" | sed "s,/$TB$,,")
 if [ -d $TBDIR ]
 then
   cd $TBDIR
@@ -45,9 +47,10 @@ fi
 
 # Log results for ToyBox-Ext
 TBEXT=toybox-ext
-which $TBEXT
 $TBEXT --version
-TBEXTDIR=$(which $TBEXT | sed "s,/$TBEXT$,,")
+TBEXTBIN=$(which $TBEXT)
+ls -lZ $TBEXTBIN
+TBEXTDIR=$(echo "$TBEXTBIN" | sed "s,/$TBEXT$,,")
 if [ "$TBEXTDIR" != "$TBDIR" ] && [ -d $TBEXTDIR ]
 then
   cd $TBEXTDIR

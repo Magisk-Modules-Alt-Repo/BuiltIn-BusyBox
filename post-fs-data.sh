@@ -30,7 +30,7 @@ mkdir -p $BBDIR
 cd $BBDIR
 pwd
 
-# ToyBox-Ext path
+# ToyBox-Ext module path
 TBDIR="/data/adb/modules/ToyBox-Ext/$SDIR"
 								   
 # Magisk built-in BusyBox
@@ -44,8 +44,7 @@ Applets="$BB"$'\n'"$($BBBIN --list)"
 # Create local symlinks for BusyBox applets
 for Applet in $Applets
 do
-  Target=$SDIR/$Applet
-  if [ ! -x $Target ]
+  if [ ! -x $SDIR/$Applet ]
   then
     # Create symlink
     ln -s $BBBIN $Applet
@@ -58,10 +57,11 @@ do
     fi
   fi
 done
+chmod 755 *
+chcon u:object_r:system_file:s0 *
 
 # Log results
-ls -l $BB
+ls -lZ $BB
 $BBBIN | head -n 1
 ls -l | grep $BB | grep ^lr.x | rev | cut -d ' ' -f 3 | rev
 ls -l | grep $BB | grep ^lr.x | wc -l
-
