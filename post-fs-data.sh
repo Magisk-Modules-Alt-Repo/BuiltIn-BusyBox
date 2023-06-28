@@ -39,7 +39,7 @@ BBBIN=$MODDIR/$BB
 if [ -f $BBBIN ]
 then
   chmod 755 $BBBIN
-  if [ $($BBBIN --list | wc -l) -gt 50 ] && [ ! -z "$($BBBIN | grep $BB)" ]
+  if [ $($BBBIN --list | wc -l) -ge 128 ] && [ ! -z "$($BBBIN | head -n 1 | grep -i $BB)" ]
   then
     chcon u:object_r:system_file:s0 $BBBIN
     Applets=$BB$'\n'$($BBBIN --list)
