@@ -32,14 +32,29 @@ pwd
 
 # ToyBox-Ext module path
 TBDIR="/data/adb/modules/ToyBox-Ext/$SDIR"
-								   
-# Magisk built-in BusyBox
-BB=busybox
-BBBIN=/data/adb/magisk/$BB
 
-# List BusyBox applets
-$BBBIN --list | wc -l
-Applets="$BB"$'\n'"$($BBBIN --list)"
+# Check for local busybox binary
+BB=busybox
+BBBIN=$MODDIR/$BB
+if [ -f $BBBIN ]
+then
+  chmod 755 $BBBIN
+  if [ $($BBBIN --list | wc -l) -gt 50 ] && [ ! -z "$($BBBIN | grep $BB)" ]
+  then
+    chcon u:object_r:system_file:s0 $BBBIN
+    Applets=$BB$'\n'$($BBBIN --list)
+  else
+    rm -f $BBBIN
+  fi
+fi
+
+# Otherwise use Magisk built-in busybox binary
+if [ ! -x $BBBIN ]
+then
+  BBBIN=/data/adb/magisk/$BB
+  $BBBIN --list | wc -l
+  Applets=$BB$'\n'$($BBBIN --list)
+fi
 
 # Create local symlinks for BusyBox applets
 for Applet in $Applets
