@@ -1,8 +1,11 @@
 #### Coffee
-If the module is useful, you may support development by donating a [coffee](https://zgfg.github.io/PayPal.html)
+Support development by donating a [coffee](https://zgfg.github.io/PayPal.html)
 
 #### Tip:
-For even more interesting applets, install also [ToyBox-Ext](https://github.com/Magisk-Modules-Alt-Repo/ToyBox-Ext) module
+For additional applets, install also [ToyBox-Ext](https://github.com/Magisk-Modules-Alt-Repo/ToyBox-Ext) module
+
+#### v1.0.7
+toDo: Describe
 
 #### v1.0.6
 Service fix for v1.0.5 (crashes and bootloops on some devices)

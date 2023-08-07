@@ -1,6 +1,6 @@
 #!/system/bin/sh
 
-# Magisk Module: Magisk built-in BusyBox v1.0.6a
+# Magisk Module: Magisk built-in BusyBox v1.0.7
 # Copyright (c) zgfg @ xda, 2022-
 # GitHub source: https://github.com/zgfg/BuiltIn-BusyBox
 
@@ -9,13 +9,17 @@ MODDIR=${0%/*}
 
 # Log file for debugging
 LogFile="$MODDIR/service.log"
-exec 2>$LogFile 1>&2
+exec 3>&1 4>&2 2>$LogFile 1>&2
 set -x
 date +%c
 
 # Log Magisk version and magisk --path
 magisk -c
 magisk --path
+
+# Log dual-slots ROM info
+getprop ro.product.cpu.abi
+getprop ro.product.cpu.abilist
 
 # Log results for BusyBox
 BB=busybox
@@ -58,3 +62,6 @@ then
   ls -la | grep $TB | grep ^lr.x | rev | cut -d ' ' -f 3 | rev
   ls -la | grep $TB | grep ^lr.x | wc -l
 fi
+
+set +x
+exec 1>&3 2>&4 3>&- 4>&-

@@ -1,6 +1,6 @@
 #!/system/bin/sh
 
-# Magisk Module: Magisk built-in BusyBox v1.0.6a
+# Magisk Module: Magisk built-in BusyBox v1.0.7
 # Copyright (c) zgfg @ xda, 2022-
 # GitHub source: https://github.com/zgfg/BuiltIn-BusyBox
 
@@ -9,7 +9,7 @@ MODDIR=${0%/*}
 
 # Log file for debugging
 LogFile="$MODDIR/post-fs-data.log"
-exec 2>$LogFile 1>&2
+exec 3>&1 4>&2 2>$LogFile 1>&2
 set -x
 
 # Log Magisk version and magisk --path
@@ -80,3 +80,6 @@ ls -lZ $BB
 $BBBIN | head -n 1
 ls -l | grep $BB | grep ^lr.x | rev | cut -d ' ' -f 3 | rev
 ls -l | grep $BB | grep ^lr.x | wc -l
+
+set +x
+exec 1>&3 2>&4 3>&- 4>&-
