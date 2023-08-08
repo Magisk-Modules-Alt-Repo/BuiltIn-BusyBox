@@ -3,9 +3,8 @@ Support development by donating a [coffee](https://zgfg.github.io/PayPal.html)
 For additional applets, install [ToyBox-Ext](https://github.com/Magisk-Modules-Alt-Repo/ToyBox-Ext) module
 
 #### v1.0.7
-Upon updating the module, you could test and use busybox binary of your choice (eg, latest [BB-NDK](https://github.com/Magisk-Modules-Repo/busybox-ndk), click to View code and take the binary for your architecture 
+Upon updating the module, you could test and use busybox binary of your choice (eg, latest [BB-NDK](https://github.com/Magisk-Modules-Repo/busybox-ndk), click to View code and download the binary for your architecture 
  `busybox-arm...-selinux`). Rename binary to `busybox` and copy to `/data/adb/modules/BuiltIn-BusyBox` folder and reboot. If binary won't work, module will delete the file and fall-back to the Magisk built-in busybox binary
-
 
 #### v1.0.6
 Service fix for v1.0.5 (crashes and bootloops on some devices)
